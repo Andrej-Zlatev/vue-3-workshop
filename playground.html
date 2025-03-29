@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avatar: The Last Airbender</title>
+</head>
+<body>
+<div id="app">
+    <h1>Character List</h1>
+    <p v-if="characterList.length === 0">There are no characters</p>
+    <ul  >
+        <li v-for="character in characterList">
+            <p>{{ character.name }}</p>
+            <button @click="favoriteCharacter(character)" :disabled="favoriteList.includes(character)"> &#11088; favorite</button>
+        </li>
+    </ul>
+    <h2>Favorite List</h2>
+    <ul v-if="favoriteList.length > 0">
+        <li v-for="favorite in favoriteList">{{favorite.name}}</li>
+    </ul>
+    <input type="text" v-model="newCharacter" @keyup.enter="addNewCharacter"/>
+    <button @click="addNewCharacter">Add new character</button>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    Vue.createApp({
+        data: () => ({
+            favoriteList:[],
+            characterList: [
+                {
+                    name: 'Aang'
+                },
+                {
+                    name: 'Zuko'
+                },
+                {
+                    name: 'Toph'
+                },
+                {
+                    name: 'Katara'
+                }
+            ],
+            newCharacter: '',
+        }),
+        methods: {
+            favoriteCharacter: function (character) {
+               if(!this.favoriteList.includes(character)){
+                   this.favoriteList.push(character)
+
+               }else(
+                   console.log("This character is already in favorite")
+               )
+
+            },
+            addNewCharacter: function () {
+            if (this.newCharacter.trim() !== '') {
+                this.characterList.push({ name: this.newCharacter });
+                this.newCharacter = '';
+    }
+        }}
+    }).mount('#app')
+</script>
+</body>
+</html>
