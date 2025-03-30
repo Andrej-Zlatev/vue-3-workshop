@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Avatar: The Last Airbender</title>
 </head>
 <body>
 <div id="app">
     <h1>Character List</h1>
-    <p v-if="characterList.length === 0">There are no characters</p>
-    <ul  >
+    <p v-if="characterList.length > 0">There are no characters</p>
+    <ul>
         <li v-for="character in characterList">
             <p>{{ character.name }}</p>
-            <button @click="favoriteCharacter(character)" :disabled="favoriteList.includes(character)"> &#11088; favorite</button>
+            <button @click="favoriteCharacter(character)" :disabled="favoriteList.includes(character)"> &#11088;
+                favorite
+            </button>
         </li>
     </ul>
     <h2>Favorite List</h2>
@@ -28,7 +30,7 @@
 <script>
     Vue.createApp({
         data: () => ({
-            favoriteList:[],
+            favoriteList: [],
             characterList: [
                 {
                     name: 'Aang'
@@ -45,22 +47,23 @@
             ],
             newCharacter: '',
         }),
+
         methods: {
             favoriteCharacter: function (character) {
-               if(!this.favoriteList.includes(character)){
-                   this.favoriteList.push(character)
-
-               }else(
-                   console.log("This character is already in favorite")
-               )
+                if (!this.favoriteList.includes(character)) {
+                    this.favoriteList.push(character)
+                } else (
+                    console.log("This character is already in favorite")
+                )
 
             },
             addNewCharacter: function () {
-            if (this.newCharacter.trim() !== '') {
-                this.characterList.push({ name: this.newCharacter });
-                this.newCharacter = '';
-    }
-        }}
+                if (this.newCharacter.trim() !== '') {
+                    this.characterList.push({name: this.newCharacter});
+                    this.newCharacter = '';
+                }
+            }
+        }
     }).mount('#app')
 </script>
 </body>
