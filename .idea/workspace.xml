@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="53e59e63-4a2e-4f73-9326-e0863320e6d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/src/assets/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/assets/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/assets/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/src/components/BaseCounter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/components/BaseCounter.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
