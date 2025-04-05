@@ -1,7 +1,7 @@
-<script>
-export default {
-  name: "BaseCounter",
-  props: {
+<script setup lang="ts">
+  import {reactive, computed} from "vue";
+
+  const props = defineProps( {
     incrementCount: {
       type: Function,
     },
@@ -11,25 +11,18 @@ export default {
     incrementAmount: {
       type: Number,
     }
-  },
-  data() {
-    return {
-      pokemonList: []
-    }
-  },
-  computed: {
-    counterTitle() {
-      return this.count >= 20 ? "The number is higher than 20" : "";
-    }
-  },
-  methods: {
-    async fetchPokemon() {
+  })
+   const state = reactive({
+     pokemonList: []}
+   )
+  const counterTitle = computed( () => {
+      return props.count >= 20 ? "The number is higher than 20" : ""}
+  )
+  const  fetchPokemon = async () => {
       const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto")
       const data = await response.json()
-      this.pokemonList = data;
-      console.log(this.pokemonList);
-    }
-  }
+      state.pokemonList = data;
+      console.log(state.pokemonList);
 }
 
 
@@ -41,7 +34,7 @@ export default {
   <button @click="incrementCount">Increment</button>
   <br>
 <ul>
-  <li >{{pokemonList.name}}</li>
+  <li >{{state.pokemonList.name}}</li>
 </ul>
   <button @click="fetchPokemon">Fetch Pokemon</button>
   <label for="incrementAmount">Increment for:</label>
