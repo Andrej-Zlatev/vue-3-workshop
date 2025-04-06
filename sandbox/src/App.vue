@@ -12,16 +12,12 @@ export default {
       incrementAmount: 0,
     }
   },
-  methods: {
-    incrementCount() {
-      this.count = this.count + this.incrementAmount
-    },
-  }
+  methods: {}
 }
 </script>
 <template>
-  <BaseCounter :incrementCount="incrementCount" :count="count"
-               v-model:incrementAmount="incrementAmount">
+  <BaseCounter
+  >
     <template v-slot:title>
       <h1>Counter</h1>
     </template>
