@@ -1,6 +1,7 @@
-<script setup lang="ts">
+<script setup >
 import {reactive, computed, ref} from "vue";
 import {countStore, incrementCount} from "../composables/countStore"
+
 
 const state = reactive({
     pokemonList: [],
@@ -17,19 +18,29 @@ const fetchPokemon = async () => {
   state.pokemonList = data;
 }
 
+const backgroundColor = ref("#ff0000")
 
 </script>
 <template>
-  <slot name="title"/>
-  <p>{{ counterTitle }}</p>
-  <p>{{ countStore.count }}</p>
-  <button @click="incrementCount(state.incrementAmount)">Increment</button>
-  <br>
-  <ul>
-    <li>{{ state.pokemonList.name }}</li>
-  </ul>
-  <button @click="fetchPokemon">Fetch Pokemon</button>
-  <label for="incrementAmount">Increment for:</label>
-  <input v-model.number="state.incrementAmount" type="number" placeholder="Increment"/>
+  <div class="wrapper">
+    <slot name="title"/>
+    <h2>{{ backgroundColor }}</h2>
+    <input type="color" v-model="backgroundColor"/>
+    <p>{{ counterTitle }}</p>
+    <p>{{ countStore.count }}</p>
+    <button @click="incrementCount(state.incrementAmount)">Increment</button>
+    <br>
+    <ul>
+      <li>{{ state.pokemonList.name }}</li>
+    </ul>
+    <button @click="fetchPokemon">Fetch Pokemon</button>
+    <label for="incrementAmount">Increment for:</label>
+    <input v-model.number="state.incrementAmount" type="number" placeholder="Increment"/>
+  </div>
 </template>
+<style>
+.wrapper {
+  background-color: v-bind(backgroundColor);
+}
+</style>
 
