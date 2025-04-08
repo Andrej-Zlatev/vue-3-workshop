@@ -19,6 +19,9 @@ export default {
   <BaseCounter
   >
     <template v-slot:title>
+      <router-link to="about">About Page</router-link>
+      <router-link to="/">Home Page</router-link>
+      <router-view/>
       <h1>Counter</h1>
     </template>
   </BaseCounter>
