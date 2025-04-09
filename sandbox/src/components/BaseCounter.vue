@@ -2,6 +2,7 @@
 import {reactive, computed, ref} from "vue";
 import {countStore, incrementCount} from "../composables/countStore"
 import {watch} from "vue";
+import {useRouter} from "vue-router";
 
 
 const state = reactive({
@@ -19,12 +20,14 @@ const fetchPokemon = async () => {
   state.pokemonList = data;
 }
 
+const router = useRouter()
+
 const backgroundColor = ref("#ff0000")
 
 watch(() => countStore.count, // Watching the count property
   (newVal) => {
     if (newVal >= 30) {
-      console.log(`${newVal} is higher than 30`);
+      router.push("/about")
     }
   }
 );
